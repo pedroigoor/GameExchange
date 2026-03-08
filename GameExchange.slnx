@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Backend/">
+    <Project Path="src/Backend/GameExchange.API/GameExchange.API.csproj" />
+    <Project Path="src/Backend/GameExchange.Application/GameExchange.Application.csproj" />
+    <Project Path="src/Backend/GameExchange.Domain/GameExchange.Domain.csproj" />
+    <Project Path="src/Backend/GameExchange.Infrastructe/GameExchange.Infrastructe.csproj" Id="ac7add1e-705d-400f-8506-e102de1c1878" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/GameExchange.Communication/GameExchange.Communication.csproj" />
+    <Project Path="src/Shared/GameExchange.Excptions/GameExchange.Excptions.csproj" Id="06588f84-e8da-4100-83b6-d878301ff6ed" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
