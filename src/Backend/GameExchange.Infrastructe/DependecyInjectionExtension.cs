@@ -1,12 +1,11 @@
 ﻿using FluentMigrator.Runner;
+using GameExchange.Domain.Repositories.User;
 using GameExchange.Infrastructe.DataAccess;
+using GameExchange.Infrastructe.DataAccess.Repositories;
 using GameExchange.Infrastructe.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameExchange.Infrastructe
 {
@@ -16,8 +15,13 @@ namespace GameExchange.Infrastructe
         {
             AddDbContext(services, configuration);
             AddFluentMigrator(services, configuration);
+            AddRepositories(services);
         }
 
+        private static void AddRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+        }
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<GameExchangeDbContext>(options =>
