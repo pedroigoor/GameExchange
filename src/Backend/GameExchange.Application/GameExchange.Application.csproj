@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Shared\GameExchange.Communication\GameExchange.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\GameExchange.Excptions\GameExchange.Excptions.csproj" />
     <ProjectReference Include="..\GameExchange.Domain\GameExchange.Domain.csproj" />

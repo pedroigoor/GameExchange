@@ -1,6 +1,9 @@
-using GameExchange.Infrastructe.Migrations;
-using GameExchange.Infrastructe.Extensions;
+using GameExchange.API;
+using GameExchange.API.Middleware;
+using GameExchange.Application;
 using GameExchange.Infrastructe;
+using GameExchange.Infrastructe.Extensions;
+using GameExchange.Infrastructe.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddInfrastructe(builder.Configuration);
+builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddApi();
+
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -52,6 +58,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<CultureMiddleware>();
 
 MigrateDatabase();
 

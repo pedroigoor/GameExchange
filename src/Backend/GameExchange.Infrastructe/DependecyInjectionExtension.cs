@@ -1,8 +1,11 @@
 ﻿using FluentMigrator.Runner;
+using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.User;
+using GameExchange.Domain.Security.Cryptogaphy;
 using GameExchange.Infrastructe.DataAccess;
 using GameExchange.Infrastructe.DataAccess.Repositories;
 using GameExchange.Infrastructe.Extensions;
+using GameExchange.Infrastructe.Security.Cryptogaphy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,10 +19,13 @@ namespace GameExchange.Infrastructe
             AddDbContext(services, configuration);
             AddFluentMigrator(services, configuration);
             AddRepositories(services);
+            AddPasswordEncripter(services);
         }
 
         private static void AddRepositories(IServiceCollection services)
         {
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
         }
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
@@ -41,5 +47,10 @@ namespace GameExchange.Infrastructe
 
 
         }
+
+        private static void AddPasswordEncripter(IServiceCollection services) {
+            services.AddScoped<IPasswordEncripter, BCryptNet>();
+        }
+
     }
 }
