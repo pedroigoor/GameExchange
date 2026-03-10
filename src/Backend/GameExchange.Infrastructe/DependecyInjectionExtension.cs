@@ -27,6 +27,7 @@ namespace GameExchange.Infrastructe
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
+            services.AddScoped<IUserReadOnlyRepository, UserRepository>();
         }
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {

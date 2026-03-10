@@ -10,10 +10,12 @@ using Mapster;
 namespace GameExchange.Application.UseCases.User
 {
     public class RegisterUserUseCase(IUserWriteOnlyRepository userWriteOnlyRepository,
+                                     IUserReadOnlyRepository  userReadOnlyRepository,
                                      IPasswordEncripter passwordEncripter, 
                                      IUnitOfWork unitOfWork) : IRegisterUserUseCase
     {
         public readonly IUserWriteOnlyRepository _userWriteOnlyRepository = userWriteOnlyRepository;
+        public readonly IUserReadOnlyRepository _userReadOnlyRepository = userReadOnlyRepository;
         public readonly IPasswordEncripter _passwordEncripter = passwordEncripter;
 
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
@@ -32,7 +34,7 @@ namespace GameExchange.Application.UseCases.User
 
             return new ResponseRegisteredUserJson
             {
-                Name = request.Name
+                Name = user.Name
             };
        }
 
@@ -43,9 +45,9 @@ namespace GameExchange.Application.UseCases.User
 
             var result = await validator.ValidateAsync(request);
 
-            //var emailExist = await _readOnlyRepository.ExistActiveUserWithEmail(request.Email);
-            //if (emailExist)
-            //    result.Errors.Add(new FluentValidation.Results.ValidationFailure(string.Empty, ResourceMessagesException.EMAIL_ALREADY_REGISTERED));
+            var emailExist = await _userReadOnlyRepository.GetByEmail(request.Email);
+            if (emailExist is not null)
+                result.Errors.Add(new FluentValidation.Results.ValidationFailure(string.Empty, ResourceMessagesException.EMAIL_ALREADY_REGISTERED));
 
             if (!result.IsValid)
             {
