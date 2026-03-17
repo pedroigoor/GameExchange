@@ -1,4 +1,4 @@
-﻿using GameExchange.Application.UseCases.User;
+﻿using GameExchange.Application.UseCases.User.Register;
 using GameExchange.Communication.Request;
 using Microsoft.AspNetCore.Mvc;
 

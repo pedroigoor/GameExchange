@@ -22,7 +22,7 @@ namespace GameExchange.Application.SharedValidators
 
             if (password.Length < 6)
             {
-                context.MessageFormatter.AppendArgument("ErrorMenssage", ResourceMessagesException.PASSWORD_EMPTY);
+                context.MessageFormatter.AppendArgument("ErrorMenssage", ResourceMessagesException.PASSWORD_INVALID);
                 return false;
 
             }

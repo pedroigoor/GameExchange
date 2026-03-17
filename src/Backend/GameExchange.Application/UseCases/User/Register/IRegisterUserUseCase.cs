@@ -1,10 +1,8 @@
 ﻿using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace GameExchange.Application.UseCases.User
+
+namespace GameExchange.Application.UseCases.User.Register
 {
     public interface IRegisterUserUseCase
     {

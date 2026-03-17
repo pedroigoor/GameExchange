@@ -10,5 +10,9 @@
     <Project Path="src/Shared/GameExchange.Communication/GameExchange.Communication.csproj" />
     <Project Path="src/Shared/GameExchange.Excptions/GameExchange.Excptions.csproj" Id="06588f84-e8da-4100-83b6-d878301ff6ed" />
   </Folder>
-  <Folder Name="/tests/" />
+  <Folder Name="/tests/">
+    <Project Path="tests/CommonTestUtileties/CommonTestUtileties.csproj" Id="51db7dc7-643c-439e-85b9-e83d963d9c01" />
+    <Project Path="tests/UsesCases.Test/UsesCases.Test.csproj" Id="92f4d511-0522-461d-bdb6-51e055875f04" />
+    <Project Path="tests/Validators.Test/Validators.Test.csproj" Id="06004ab6-3df3-48cd-b609-85bb91853d09" />
+  </Folder>
 </Solution>

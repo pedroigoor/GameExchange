@@ -3,7 +3,7 @@ using GameExchange.Application.SharedValidators;
 using GameExchange.Communication.Request;
 using GameExchange.Excptions;
 
-namespace GameExchange.Application.UseCases.User
+namespace GameExchange.Application.UseCases.User.Register
 {
     public class RegisterUserValidador : AbstractValidator<RequestRegisterUserJson>
     {

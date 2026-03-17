@@ -1,5 +1,5 @@
 ﻿using GameExchange.Application.Mappings;
-using GameExchange.Application.UseCases.User;
+using GameExchange.Application.UseCases.User.Register;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

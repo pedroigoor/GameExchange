@@ -7,7 +7,7 @@ using GameExchange.Excptions;
 using GameExchange.Excptions.ExceptionBase;
 using Mapster;
 
-namespace GameExchange.Application.UseCases.User
+namespace GameExchange.Application.UseCases.User.Register
 {
     public class RegisterUserUseCase(IUserWriteOnlyRepository userWriteOnlyRepository,
                                      IUserReadOnlyRepository  userReadOnlyRepository,
