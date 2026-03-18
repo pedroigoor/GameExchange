@@ -16,10 +16,17 @@ namespace GameExchange.Infrastructe
     {
         public static void AddInfrastructe(this IServiceCollection services, IConfiguration configuration)
         {
-            AddDbContext(services, configuration);
-            AddFluentMigrator(services, configuration);
             AddRepositories(services);
             AddPasswordEncripter(services);
+
+            if (configuration.IsUnitTestEnviroment())
+            {
+                return;
+            }
+
+            AddDbContext(services, configuration);
+            AddFluentMigrator(services, configuration);
+          
         }
 
         private static void AddRepositories(IServiceCollection services)

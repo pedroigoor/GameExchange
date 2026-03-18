@@ -1,8 +1,5 @@
 ﻿using GameExchange.Domain.Repositories.User;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CommonTestUtileties.Repositories
 {

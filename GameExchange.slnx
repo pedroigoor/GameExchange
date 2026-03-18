@@ -14,5 +14,6 @@
     <Project Path="tests/CommonTestUtileties/CommonTestUtileties.csproj" Id="51db7dc7-643c-439e-85b9-e83d963d9c01" />
     <Project Path="tests/UsesCases.Test/UsesCases.Test.csproj" Id="92f4d511-0522-461d-bdb6-51e055875f04" />
     <Project Path="tests/Validators.Test/Validators.Test.csproj" Id="06004ab6-3df3-48cd-b609-85bb91853d09" />
+    <Project Path="tests/WebApi.Test/WebApi.Test.csproj" Id="bf2dba8a-af5a-4269-b01f-4a125bebb43a" />
   </Folder>
 </Solution>
