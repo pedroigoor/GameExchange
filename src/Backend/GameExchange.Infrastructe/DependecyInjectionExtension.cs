@@ -1,11 +1,19 @@
-﻿using FluentMigrator.Runner;
+﻿using FirebirdSql.Data.Services;
+using FluentMigrator.Runner;
 using GameExchange.Domain.Repositories;
+using GameExchange.Domain.Repositories.Token;
 using GameExchange.Domain.Repositories.User;
 using GameExchange.Domain.Security.Cryptogaphy;
+using GameExchange.Domain.Security.Tokens;
+using GameExchange.Domain.Services;
 using GameExchange.Infrastructe.DataAccess;
 using GameExchange.Infrastructe.DataAccess.Repositories;
 using GameExchange.Infrastructe.Extensions;
 using GameExchange.Infrastructe.Security.Cryptogaphy;
+using GameExchange.Infrastructe.Security.Tokens.Access.Generator;
+using GameExchange.Infrastructe.Security.Tokens.Access.Validator;
+using GameExchange.Infrastructe.Security.Tokens.Refresh;
+using GameExchange.Infrastructe.Services.LoggedUser;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +26,8 @@ namespace GameExchange.Infrastructe
         {
             AddRepositories(services);
             AddPasswordEncripter(services);
+            AddToken(services, configuration);
+            AddLoggedUser(services);
 
             if (configuration.IsUnitTestEnviroment())
             {
@@ -35,6 +45,7 @@ namespace GameExchange.Infrastructe
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+            services.AddScoped<ITokenRepository, TokenRepository>();
         }
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
@@ -43,6 +54,18 @@ namespace GameExchange.Infrastructe
                 options.UseSqlServer(configuration.ConnectionString());
             });
         }
+
+        private static void AddToken(IServiceCollection services, IConfiguration configuration)
+        {
+            var expirationTimeMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpirationTimeMinutes");
+            var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+
+            services.AddScoped<IAccessTokenGenerator>(option => new JwtTokenGenerator(expirationTimeMinutes, signingKey!));
+            services.AddScoped<IAccessTokenValidator>(option => new JwtTokenValidator(signingKey!));
+
+            services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
+        }
+
         private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.ConnectionString();
@@ -59,6 +82,8 @@ namespace GameExchange.Infrastructe
         private static void AddPasswordEncripter(IServiceCollection services) {
             services.AddScoped<IPasswordEncripter, BCryptNet>();
         }
+
+        private static void AddLoggedUser(IServiceCollection services) => services.AddScoped<ILoggedUser, LoggedUser>();
 
     }
 }

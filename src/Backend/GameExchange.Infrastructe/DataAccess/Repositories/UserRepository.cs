@@ -13,6 +13,9 @@ namespace GameExchange.Infrastructe.DataAccess.Repositories
             await _context.Users.AddAsync(user);
         }
 
+        public async Task<bool> ExistActiveUserWithIdentifier(Guid userIdentifier) => await _context.Users.AnyAsync(user => user.UserIdentifier.Equals(userIdentifier) && user.Status);
+
+
         public async Task<User?> GetByEmail(string email)
         {
             return await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Status && u.Email.Equals(email));

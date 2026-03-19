@@ -4,6 +4,7 @@ using GameExchange.Application;
 using GameExchange.Infrastructe;
 using GameExchange.Infrastructe.Extensions;
 using GameExchange.Infrastructe.Migrations;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,28 +20,30 @@ builder.Services.AddApi();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddSwaggerGen(options =>
-//{
-//    options.OperationFilter<IdsFilter>();
+builder.Services.AddSwaggerGen(options =>
+{
+    //options.OperationFilter<IdsFilter>();
 
-//    options.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
-//    {
-//        Description = @"JWT Authorization header using the Bearer scheme.
-//                      Enter 'Bearer' [space] and then your token in the text input below.
-//                      Example: 'Bearer 12345abcdef'",
-//        Name = "Authorization",
-//        In = ParameterLocation.Header,
-//        Type = SecuritySchemeType.ApiKey,
-//        Scheme = "bearer",
+    options.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
+    {
+        Description = @"JWT Authorization header using the Bearer scheme.
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      Example: 'Bearer 12345abcdef'",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "bearer",
 
 
-//    });
+    });
 
-//    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
-//    {
-//        [new OpenApiSecuritySchemeReference("bearer", document)] = []
-//    });
-//});
+    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+    {
+        [new OpenApiSecuritySchemeReference("bearer", document)] = []
+    });
+});
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

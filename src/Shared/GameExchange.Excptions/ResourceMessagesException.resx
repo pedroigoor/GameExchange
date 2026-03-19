@@ -126,8 +126,20 @@
   <data name="EMAIL_INVALID" xml:space="preserve">
     <value>Email Invalido.</value>
   </data>
+  <data name="EMAIL_OR_PASSWORD_INVALID" xml:space="preserve">
+    <value>Email e/ou senha invalidos</value>
+  </data>
+  <data name="EXPIRED_SESSION" xml:space="preserve">
+    <value>Sua sessão expirou. Faça login novamente para continuar.</value>
+  </data>
+  <data name="INVALID_SESSION" xml:space="preserve">
+    <value>Não foi possível encontrar uma sessão válida. Faça login para acessar este recurso.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Nome não pode ser vazio.</value>
+  </data>
+  <data name="NO_TOKEN" xml:space="preserve">
+    <value>O Token não existe!</value>
   </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Senha não pode ser vazia.</value>
@@ -137,5 +149,8 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro Inesperado.</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION_ACCESS_RESOURCE" xml:space="preserve">
+    <value>Você não tem permissão para acessar esse recurso.</value>
   </data>
 </root>

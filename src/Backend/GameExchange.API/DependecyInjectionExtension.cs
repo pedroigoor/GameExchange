@@ -1,5 +1,7 @@
 ﻿using GameExchange.API.Filters;
 using GameExchange.API.Middleware;
+using GameExchange.API.Token;
+using GameExchange.Domain.Security.Tokens;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace GameExchange.API
@@ -10,7 +12,7 @@ namespace GameExchange.API
         public static void AddApi(this IServiceCollection services)
         {
             services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
-            //services.AddScoped<ITokenProvider, HttpContextTokenValue>();
+            services.AddScoped<ITokenProvider, HttpContextTokenValue>();
             //services.AddHostedService<DeleteUserService>();
 
 

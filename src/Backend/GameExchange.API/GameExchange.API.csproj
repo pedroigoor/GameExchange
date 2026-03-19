@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Shared\GameExchange.Communication\GameExchange.Communication.csproj" />
     <ProjectReference Include="..\..\Shared\GameExchange.Excptions\GameExchange.Excptions.csproj" />
     <ProjectReference Include="..\GameExchange.Application\GameExchange.Application.csproj" />
