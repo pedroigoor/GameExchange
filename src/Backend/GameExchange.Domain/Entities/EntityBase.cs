@@ -1,4 +1,4 @@
-﻿namespace GameExchange.Domain.Entities.Base
+﻿namespace GameExchange.Domain.Entities
 {
     public class EntityBase
     {

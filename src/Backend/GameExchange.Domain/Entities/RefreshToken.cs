@@ -1,6 +1,4 @@
-﻿using GameExchange.Domain.Entities.Base;
-
-namespace GameExchange.Domain.Entities
+﻿namespace GameExchange.Domain.Entities
 {
     public class RefreshToken : EntityBase
     {
