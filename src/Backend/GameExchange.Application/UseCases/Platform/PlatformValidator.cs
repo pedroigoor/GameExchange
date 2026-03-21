@@ -7,10 +7,10 @@ using System.Text;
 
 namespace GameExchange.Application.UseCases.Platform
 {
-    public class SavePlatformValidator  : AbstractValidator<RequestPlatform>
+    public class PlatformValidator  : AbstractValidator<RequestPlatform>
     {
 
-        public SavePlatformValidator()
+        public PlatformValidator()
         {
             RuleFor(RuleFor => RuleFor.Name).NotEmpty().WithMessage(ResourceMessagesException.NAME_EMPTY);
         }

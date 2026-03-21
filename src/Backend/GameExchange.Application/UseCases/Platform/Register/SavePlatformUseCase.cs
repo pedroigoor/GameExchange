@@ -30,7 +30,7 @@ namespace GameExchange.Application.UseCases.Platform.Register
 
         private static async Task Validate(RequestPlatform request)
         {
-            var validator = new SavePlatformValidator();
+            var validator = new PlatformValidator();
             var result = await validator.ValidateAsync(request);
             if (!result.IsValid)
             {

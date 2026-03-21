@@ -61,6 +61,15 @@ namespace GameExchange.Excptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Categoria  obrigatoria..
+        /// </summary>
+        public static string CATEGORY_EMPTY {
+            get {
+                return ResourceManager.GetString("CATEGORY_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email Já Cadastrado.
         /// </summary>
         public static string EMAIL_ALREADY_REGISTERED {
@@ -147,6 +156,15 @@ namespace GameExchange.Excptions {
         public static string PASSWORD_INVALID {
             get {
                 return ResourceManager.GetString("PASSWORD_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Plataforma obrigatoria..
+        /// </summary>
+        public static string PLATFORM_EMPTY {
+            get {
+                return ResourceManager.GetString("PLATFORM_EMPTY", resourceCulture);
             }
         }
         

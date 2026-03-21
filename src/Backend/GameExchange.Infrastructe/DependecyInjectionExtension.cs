@@ -1,6 +1,7 @@
 ﻿using FluentMigrator.Runner;
 using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.Category;
+using GameExchange.Domain.Repositories.Game;
 using GameExchange.Domain.Repositories.Platform;
 using GameExchange.Domain.Repositories.Token;
 using GameExchange.Domain.Repositories.User;
@@ -55,6 +56,10 @@ namespace GameExchange.Infrastructe
             services.AddScoped<ICategoryWriteOnlyRepository, CategoryRepository>();
             services.AddScoped<ICategoryUpdateOnlyRepository, CategoryRepository>();
             services.AddScoped<ICategoryReadOnlyRepository, CategoryRepository>();
+
+            services.AddScoped<IGameWriteOnlyRepository, GameRepository>();
+            services.AddScoped<IGameUpdateOnlyRepository, GameRepository>();
+            services.AddScoped<IGameReadOnlyRepository, GameRepository>();
 
 
             services.AddScoped<ITokenRepository, TokenRepository>();

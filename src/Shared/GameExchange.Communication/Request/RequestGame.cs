@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameExchange.Domain.Entities
+namespace GameExchange.Communication.Request
 {
-    public class Game : EntityBase
+    public class RequestGame
     {
         public string Name { get; set; } = string.Empty;
         public long CategoryId { get; set; }
-        public Category Category { get; set; } = default!;
         public long PlatformId { get; set; }
-        public Platform Platform { get; set; } = default!;
-
     }
 }
