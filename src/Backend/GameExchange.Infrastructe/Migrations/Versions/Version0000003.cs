@@ -15,8 +15,8 @@ namespace GameExchange.Infrastructe.Migrations.Versions
 
             CreateTable("Games")
             .WithColumn("Name").AsString().NotNullable()
-            .WithColumn("CategoryId").AsInt64().NotNullable().ForeignKey("FK_RefreshTokens_Category_Id", "Categories", "Id") 
-            .WithColumn("PlatformId").AsInt64().NotNullable().ForeignKey("FK_RefreshTokens_Plataform_Id", "Platforms ", "Id");
+            .WithColumn("CategoryId").AsInt64().NotNullable().ForeignKey("FK_Games_Category_Id", "Categories", "Id") 
+            .WithColumn("PlatformId").AsInt64().NotNullable().ForeignKey("FK_Games_Plataform_Id", "Platforms ", "Id");
         }
     }
 }
