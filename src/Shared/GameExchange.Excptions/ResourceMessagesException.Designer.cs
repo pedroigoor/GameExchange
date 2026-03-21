@@ -151,6 +151,15 @@ namespace GameExchange.Excptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Recurso não encontrado..
+        /// </summary>
+        public static string RESOURCE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("RESOURCE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Erro Inesperado..
         /// </summary>
         public static string UNKNOW_ERROR {

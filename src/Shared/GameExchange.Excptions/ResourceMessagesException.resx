@@ -147,6 +147,9 @@
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>Senha Invalida.</value>
   </data>
+  <data name="RESOURCE_NOT_FOUND" xml:space="preserve">
+    <value>Recurso não encontrado.</value>
+  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro Inesperado.</value>
   </data>

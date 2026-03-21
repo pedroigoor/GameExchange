@@ -1,6 +1,6 @@
 ﻿namespace GameExchange.Domain.Entities
 {
-    public class Category : EntityBase
+    public class Platform : EntityBase
     {
         public string Name { get; set; } = string.Empty;
     }

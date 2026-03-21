@@ -1,6 +1,7 @@
-﻿using FirebirdSql.Data.Services;
-using FluentMigrator.Runner;
+﻿using FluentMigrator.Runner;
 using GameExchange.Domain.Repositories;
+using GameExchange.Domain.Repositories.Category;
+using GameExchange.Domain.Repositories.Platform;
 using GameExchange.Domain.Repositories.Token;
 using GameExchange.Domain.Repositories.User;
 using GameExchange.Domain.Security.Cryptogaphy;
@@ -45,6 +46,17 @@ namespace GameExchange.Infrastructe
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserWriteOnlyRepository, UserRepository>();
             services.AddScoped<IUserReadOnlyRepository, UserRepository>();
+
+            services.AddScoped<IPlatformWriteOnlyRepository, PlatformRepository>();
+            services.AddScoped<IPlatformUpdateOnlyRepository, PlatformRepository>();
+            services.AddScoped<IPlatformReadOnlyRepository, PlatformRepository>();
+
+
+            services.AddScoped<ICategoryWriteOnlyRepository, CategoryRepository>();
+            services.AddScoped<ICategoryUpdateOnlyRepository, CategoryRepository>();
+            services.AddScoped<ICategoryReadOnlyRepository, CategoryRepository>();
+
+
             services.AddScoped<ITokenRepository, TokenRepository>();
         }
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)

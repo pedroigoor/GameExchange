@@ -1,4 +1,5 @@
 ﻿using GameExchange.Domain.Entities;
+using GameExchange.Domain.Repositories.Platform;
 using GameExchange.Domain.Repositories.User;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,5 +21,7 @@ namespace GameExchange.Infrastructe.DataAccess.Repositories
         {
             return await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Status && u.Email.Equals(email));
         }
+
+       
     }
 }
