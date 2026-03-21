@@ -1,4 +1,5 @@
-﻿using GameExchange.Application.UseCases.Category.List;
+﻿using GameExchange.API.Attributes;
+using GameExchange.Application.UseCases.Category.List;
 using GameExchange.Application.UseCases.Category.Register;
 using GameExchange.Application.UseCases.Category.Update;
 using GameExchange.Application.UseCases.Platform.Register;
@@ -7,8 +8,10 @@ using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace GameExchange.API.Controllers
 {
+    [AuthenticatedUser]
     public class CategoryController : GameExchangeBaseController
     {
         [HttpGet]

@@ -1,0 +1,42 @@
+﻿using GameExchange.Communication.Request;
+using GameExchange.Communication.Response;
+using GameExchange.Domain.Repositories;
+using GameExchange.Domain.Repositories.Listing;
+using GameExchange.Excptions;
+using GameExchange.Excptions.ExceptionBase;
+using Mapster;
+
+namespace GameExchange.Application.UseCases.Listing.ChangeStatus
+{
+    public class ChangeStatusListingUseCase(IListingUpdateOnlyRepository listingUpdateOnlyRepository,
+                                            IUnitOfWork unitOfWork) : IChangeStatusListingUseCase
+    {
+        private readonly IListingUpdateOnlyRepository _listingUpdateOnlyRepository = listingUpdateOnlyRepository;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
+        public async Task<ResponseListingJson> Execute(long id, ChangeStatusRequest status)
+        {
+            await ValidateRequest(status);
+
+            var listing =  await _listingUpdateOnlyRepository.GetById(id) ?? throw new NotFoundException(ResourceMessagesException.RESOURCE_NOT_FOUND);
+
+            listing.Status = (Domain.Enum.ListingStatus) status.Status;
+
+             _listingUpdateOnlyRepository.Update(listing);
+
+            await _unitOfWork.Commit();
+
+            return listing.Adapt<ResponseListingJson>();
+        }
+
+        private static async Task ValidateRequest(ChangeStatusRequest status)
+        {
+            var validator = new ChangeStatusValidator();
+            var validationResult = validator.Validate(status);
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                throw new ErrorOnValidationException(errors);
+            }
+        }
+    }
+}

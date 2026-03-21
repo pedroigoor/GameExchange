@@ -124,6 +124,51 @@ namespace GameExchange.Excptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Descrição não informada.
+        /// </summary>
+        public static string LISTING_DESCRIPTION_EMPTY {
+            get {
+                return ResourceManager.GetString("LISTING_DESCRIPTION_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Jogo não informado..
+        /// </summary>
+        public static string LISTING_GAME_EMPTY {
+            get {
+                return ResourceManager.GetString("LISTING_GAME_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O preço precisar ser maior que 0..
+        /// </summary>
+        public static string LISTING_PRICE_ZERO_OR_NEGATIVE {
+            get {
+                return ResourceManager.GetString("LISTING_PRICE_ZERO_OR_NEGATIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Código do vendedor não informado..
+        /// </summary>
+        public static string LISTING_SELLER_ID_EMPTY {
+            get {
+                return ResourceManager.GetString("LISTING_SELLER_ID_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Titulo não informado..
+        /// </summary>
+        public static string LISTING_TITLE_EMPTY {
+            get {
+                return ResourceManager.GetString("LISTING_TITLE_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Nome não pode ser vazio..
         /// </summary>
         public static string NAME_EMPTY {
@@ -174,6 +219,15 @@ namespace GameExchange.Excptions {
         public static string RESOURCE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("RESOURCE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Status não suportado.
+        /// </summary>
+        public static string STATUS_LISTING_NOT_SUPPORTED {
+            get {
+                return ResourceManager.GetString("STATUS_LISTING_NOT_SUPPORTED", resourceCulture);
             }
         }
         

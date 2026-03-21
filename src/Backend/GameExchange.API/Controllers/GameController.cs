@@ -1,4 +1,5 @@
-﻿using GameExchange.Application.UseCases.Game.List;
+﻿using GameExchange.API.Attributes;
+using GameExchange.Application.UseCases.Game.List;
 using GameExchange.Application.UseCases.Game.Register;
 using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GameExchange.API.Controllers
 {
+    [AuthenticatedUser]
     public class GameController : GameExchangeBaseController
     {
         [HttpGet]

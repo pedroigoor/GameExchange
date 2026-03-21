@@ -4,12 +4,16 @@ using GameExchange.Application.UseCases.Category.Register;
 using GameExchange.Application.UseCases.Category.Update;
 using GameExchange.Application.UseCases.Game.List;
 using GameExchange.Application.UseCases.Game.Register;
+using GameExchange.Application.UseCases.Listing.ChangeStatus;
+using GameExchange.Application.UseCases.Listing.List;
+using GameExchange.Application.UseCases.Listing.Register;
 using GameExchange.Application.UseCases.Login.LoginInterno;
 using GameExchange.Application.UseCases.Platform.List;
 using GameExchange.Application.UseCases.Platform.Register;
 using GameExchange.Application.UseCases.Platform.Update;
 using GameExchange.Application.UseCases.Token.RefreshToken;
 using GameExchange.Application.UseCases.User.Register;
+using GameExchange.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -39,6 +43,13 @@ namespace GameExchange.Application
             services.AddScoped<IListGameUseCase, ListGameUseCase>();
             services.AddScoped<ISaveGameUseCase, SaveGameUseCase>();
             //services.AddScoped<IUpdateCategoryUseCase, UpdateCategoryUseCase>();
+
+
+            services.AddScoped<ISaveListingUseCase, SaveListingUseCase>();
+            services.AddScoped<IFilterListingUseCase, FilterListingUseCase>();
+            services.AddScoped<IChangeStatusListingUseCase, ChangeStatusListingUseCase>();
+
+            
 
             services.AddScoped<IUseRefreshTokenUseCase, UseRefreshTokenUseCase>();
         }

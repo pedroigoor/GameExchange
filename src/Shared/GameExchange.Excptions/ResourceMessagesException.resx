@@ -138,6 +138,21 @@
   <data name="INVALID_SESSION" xml:space="preserve">
     <value>Não foi possível encontrar uma sessão válida. Faça login para acessar este recurso.</value>
   </data>
+  <data name="LISTING_DESCRIPTION_EMPTY" xml:space="preserve">
+    <value>Descrição não informada</value>
+  </data>
+  <data name="LISTING_GAME_EMPTY" xml:space="preserve">
+    <value>Jogo não informado.</value>
+  </data>
+  <data name="LISTING_PRICE_ZERO_OR_NEGATIVE" xml:space="preserve">
+    <value>O preço precisar ser maior que 0.</value>
+  </data>
+  <data name="LISTING_SELLER_ID_EMPTY" xml:space="preserve">
+    <value>Código do vendedor não informado.</value>
+  </data>
+  <data name="LISTING_TITLE_EMPTY" xml:space="preserve">
+    <value>Titulo não informado.</value>
+  </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Nome não pode ser vazio.</value>
   </data>
@@ -155,6 +170,9 @@
   </data>
   <data name="RESOURCE_NOT_FOUND" xml:space="preserve">
     <value>Recurso não encontrado.</value>
+  </data>
+  <data name="STATUS_LISTING_NOT_SUPPORTED" xml:space="preserve">
+    <value>Status não suportado</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro Inesperado.</value>
