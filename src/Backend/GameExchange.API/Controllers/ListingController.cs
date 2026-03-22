@@ -1,9 +1,11 @@
 ﻿using GameExchange.API.Attributes;
 using GameExchange.Application.UseCases.Category.Register;
+using GameExchange.Application.UseCases.Category.Update;
 using GameExchange.Application.UseCases.Game.List;
 using GameExchange.Application.UseCases.Listing.ChangeStatus;
 using GameExchange.Application.UseCases.Listing.List;
 using GameExchange.Application.UseCases.Listing.Register;
+using GameExchange.Application.UseCases.Listing.Update;
 using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
 using GameExchange.Domain.Repositories;
@@ -46,6 +48,19 @@ namespace GameExchange.API.Controllers
                                               [FromQuery] int pageSize = 10)
         {
             var response = await useCase.Execute(page, pageSize,request);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseListingJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update([FromServices] IUpdateListingUseCase useCase,
+                                              [FromRoute] long id,
+                                             [FromBody] RequestListing request)
+        {
+            var response = await useCase.Execute(id, request);
             return Ok(response);
         }
     }

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ACCOUNT_IS_CANCELLED" xml:space="preserve">
+    <value>O anuncio está cancelado.</value>
+  </data>
+  <data name="ACCOUNT_IS_SOLD" xml:space="preserve">
+    <value>A conta foi vendida.</value>
+  </data>
   <data name="CATEGORY_EMPTY" xml:space="preserve">
     <value>Categoria  obrigatoria.</value>
   </data>

@@ -1,5 +1,6 @@
 ﻿using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
+using GameExchange.Domain.Enum;
 using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.Listing;
 using GameExchange.Excptions;
@@ -17,9 +18,15 @@ namespace GameExchange.Application.UseCases.Listing.ChangeStatus
         {
             await ValidateRequest(status);
 
-            var listing =  await _listingUpdateOnlyRepository.GetById(id) ?? throw new NotFoundException(ResourceMessagesException.RESOURCE_NOT_FOUND);
+            var listing =  await _listingUpdateOnlyRepository.GetById(null,id) ?? throw new NotFoundException(ResourceMessagesException.RESOURCE_NOT_FOUND);
 
-            listing.Status = (Domain.Enum.ListingStatus) status.Status;
+            if (listing.Status.Equals(ListingStatus.Sold))
+                throw new ErrorOnValidationException(ResourceMessagesException.ACCOUNT_IS_SOLD);
+
+            if (listing.Status.Equals(ListingStatus.Cancelled))
+                throw new ErrorOnValidationException(ResourceMessagesException.ACCOUNT_IS_CANCELLED);
+
+            listing.Status = (ListingStatus) status.Status;
 
              _listingUpdateOnlyRepository.Update(listing);
 

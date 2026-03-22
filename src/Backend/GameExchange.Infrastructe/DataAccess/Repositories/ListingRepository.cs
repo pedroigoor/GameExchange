@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static System.Net.WebRequestMethods;
 
 namespace GameExchange.Infrastructe.DataAccess.Repositories
@@ -19,8 +20,15 @@ namespace GameExchange.Infrastructe.DataAccess.Repositories
 
         async Task<Listing?> IListingReadOnlyRepository.GetById(long id) => await _dbContext.Listings.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
 
-        async Task<Listing?> IListingUpdateOnlyRepository.GetById( long id) => await _dbContext.Listings.FirstOrDefaultAsync(c => c.Id == id);
+        async Task<Listing?> IListingUpdateOnlyRepository.GetById(User? user, long id)
+        {
+            var query = _dbContext.Listings.AsQueryable();
 
+            if (user is not null)
+                query = query.Where(l => l.SellerId == user.Id);
+
+            return await query.FirstOrDefaultAsync(l => l.Id == id);
+        }
 
         public async Task<PagedResult<Listing>> GetPaged(int page, int pageSize, FilterListingDTO filterListing)
         {
@@ -29,11 +37,11 @@ namespace GameExchange.Infrastructe.DataAccess.Repositories
 
             var excludedStatus = new List<ListingStatus>
                 {
-                    ListingStatus.Cancelled,
+                    
                     ListingStatus.Draft
                 };
 
-            query = query.Where(l => !excludedStatus.Contains(l.Status));
+            //query = query.Where(l => !excludedStatus.Contains(l.Status));
 
             if (!string.IsNullOrWhiteSpace(filterListing.Title))
                 query = query.Where(l => l.Title.Contains(filterListing.Title));

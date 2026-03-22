@@ -22,8 +22,11 @@ namespace GameExchange.Application.UseCases.Listing.Register
             await ValidateRequest(requestListing);
 
             var user = await _loggedUser.User();
+
             var listing = requestListing.Adapt<Domain.Entities.Listing>();
+
             listing.Status =  ListingStatus.Draft; 
+
             listing.SellerId = user.Id;
 
             await _listingWriteOnlyRepository.Add(listing);

@@ -7,6 +7,7 @@ using GameExchange.Application.UseCases.Game.Register;
 using GameExchange.Application.UseCases.Listing.ChangeStatus;
 using GameExchange.Application.UseCases.Listing.List;
 using GameExchange.Application.UseCases.Listing.Register;
+using GameExchange.Application.UseCases.Listing.Update;
 using GameExchange.Application.UseCases.Login.LoginInterno;
 using GameExchange.Application.UseCases.Platform.List;
 using GameExchange.Application.UseCases.Platform.Register;
@@ -48,6 +49,7 @@ namespace GameExchange.Application
             services.AddScoped<ISaveListingUseCase, SaveListingUseCase>();
             services.AddScoped<IFilterListingUseCase, FilterListingUseCase>();
             services.AddScoped<IChangeStatusListingUseCase, ChangeStatusListingUseCase>();
+            services.AddScoped<IUpdateListingUseCase, UpdateListingUseCase>();
 
             
 

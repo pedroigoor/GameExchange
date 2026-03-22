@@ -6,7 +6,7 @@ namespace GameExchange.Domain.Repositories.Listing
 {
     public interface IListingUpdateOnlyRepository
     {
-        Task<Entities.Listing?> GetById( long id);
+        Task<Entities.Listing?> GetById(Entities.User? user, long id);
 
         void Update(Entities.Listing listing);
     }

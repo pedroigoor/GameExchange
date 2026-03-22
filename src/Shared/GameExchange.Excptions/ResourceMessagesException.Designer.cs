@@ -61,6 +61,24 @@ namespace GameExchange.Excptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O anuncio está cancelado..
+        /// </summary>
+        public static string ACCOUNT_IS_CANCELLED {
+            get {
+                return ResourceManager.GetString("ACCOUNT_IS_CANCELLED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A conta foi vendida..
+        /// </summary>
+        public static string ACCOUNT_IS_SOLD {
+            get {
+                return ResourceManager.GetString("ACCOUNT_IS_SOLD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Categoria  obrigatoria..
         /// </summary>
         public static string CATEGORY_EMPTY {
