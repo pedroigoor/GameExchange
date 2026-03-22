@@ -3,6 +3,7 @@ using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.Category;
 using GameExchange.Domain.Repositories.Game;
 using GameExchange.Domain.Repositories.Listing;
+using GameExchange.Domain.Repositories.Order;
 using GameExchange.Domain.Repositories.Platform;
 using GameExchange.Domain.Repositories.Token;
 using GameExchange.Domain.Repositories.User;
@@ -67,6 +68,11 @@ namespace GameExchange.Infrastructe
             services.AddScoped<IListingReadOnlyRepository, ListingRepository>();
             services.AddScoped<IListingUpdateOnlyRepository, ListingRepository>();
 
+
+            services.AddScoped<IOrderWriteOnlyRepository, OrderRepositoy>();
+
+
+            
 
             services.AddScoped<ITokenRepository, TokenRepository>();
         }

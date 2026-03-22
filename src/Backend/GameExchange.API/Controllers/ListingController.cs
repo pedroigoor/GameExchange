@@ -17,14 +17,15 @@ namespace GameExchange.API.Controllers
     public class ListingController : GameExchangeBaseController
     {
         [HttpPost]
-        [ProducesResponseType(typeof(ResponseListingJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseListingJson), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Save([FromServices] ISaveListingUseCase useCase,
                                         [FromBody] RequestListing request)
         {
             var response = await useCase.Execute(request);
-            return Ok(response);
+
+            return Created(string.Empty, response);
         }
         [HttpPut]
         [Route("{id}/status")]

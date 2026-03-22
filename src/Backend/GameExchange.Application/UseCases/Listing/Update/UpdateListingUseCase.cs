@@ -1,7 +1,5 @@
-﻿using GameExchange.Application.UseCases.Category;
-using GameExchange.Communication.Request;
+﻿using GameExchange.Communication.Request;
 using GameExchange.Communication.Response;
-using GameExchange.Domain.Entities;
 using GameExchange.Domain.Enum;
 using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.Listing;
@@ -9,9 +7,6 @@ using GameExchange.Domain.Services;
 using GameExchange.Excptions;
 using GameExchange.Excptions.ExceptionBase;
 using Mapster;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameExchange.Application.UseCases.Listing.Update
 {

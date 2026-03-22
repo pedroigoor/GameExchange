@@ -15,14 +15,15 @@ namespace GameExchange.API.Controllers
     {
 
         [HttpPost]
-        [ProducesResponseType(typeof(ResponsePlatformJson), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponsePlatformJson), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Save([FromServices] ISavePlatformUseCase useCase,
                                              [FromBody] RequestPlatform request)
         {
             var response = await useCase.Execute(request);
-            return Ok(response);
+
+            return Created(string.Empty, response);
         }
 
         [HttpPut]

@@ -160,6 +160,15 @@ namespace GameExchange.Excptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O anuncio não esta disponível..
+        /// </summary>
+        public static string LISTING_NOT_ACTIVE {
+            get {
+                return ResourceManager.GetString("LISTING_NOT_ACTIVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O preço precisar ser maior que 0..
         /// </summary>
         public static string LISTING_PRICE_ZERO_OR_NEGATIVE {
@@ -201,6 +210,15 @@ namespace GameExchange.Excptions {
         public static string NO_TOKEN {
             get {
                 return ResourceManager.GetString("NO_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não é possivel comprar seu proprio anuncio..
+        /// </summary>
+        public static string NOT_BUY_SELF_LISTING {
+            get {
+                return ResourceManager.GetString("NOT_BUY_SELF_LISTING", resourceCulture);
             }
         }
         

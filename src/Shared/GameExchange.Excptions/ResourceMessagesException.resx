@@ -150,6 +150,9 @@
   <data name="LISTING_GAME_EMPTY" xml:space="preserve">
     <value>Jogo não informado.</value>
   </data>
+  <data name="LISTING_NOT_ACTIVE" xml:space="preserve">
+    <value>O anuncio não esta disponível.</value>
+  </data>
   <data name="LISTING_PRICE_ZERO_OR_NEGATIVE" xml:space="preserve">
     <value>O preço precisar ser maior que 0.</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="NAME_EMPTY" xml:space="preserve">
     <value>Nome não pode ser vazio.</value>
+  </data>
+  <data name="NOT_BUY_SELF_LISTING" xml:space="preserve">
+    <value>Não é possivel comprar seu proprio anuncio.</value>
   </data>
   <data name="NO_TOKEN" xml:space="preserve">
     <value>O Token não existe!</value>

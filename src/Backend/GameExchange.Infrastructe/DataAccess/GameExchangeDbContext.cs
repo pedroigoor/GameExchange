@@ -11,6 +11,7 @@ namespace GameExchange.Infrastructe.DataAccess
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Listing> Listings { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
