@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\GameExchange.Communication\GameExchange.Communication.csproj" />
+  </ItemGroup>
+
 </Project>

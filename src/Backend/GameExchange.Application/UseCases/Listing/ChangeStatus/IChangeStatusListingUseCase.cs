@@ -8,6 +8,6 @@ namespace GameExchange.Application.UseCases.Listing.ChangeStatus
 {
     public interface IChangeStatusListingUseCase
     {
-        Task<ResponseListingJson> Execute(long id, ChangeStatusRequest status);
+        Task<ResponseListingJson> Execute(long id, RequestChangeStatusListing status);
     }
 }

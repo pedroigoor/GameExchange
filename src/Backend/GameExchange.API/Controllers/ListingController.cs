@@ -34,7 +34,7 @@ namespace GameExchange.API.Controllers
         [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ChangeStatus([FromServices] IChangeStatusListingUseCase useCase,
                                                       [FromRoute] long id,
-                                                      [FromBody] ChangeStatusRequest request)
+                                                      [FromBody] RequestChangeStatusListing request)
         {
             var response = await useCase.Execute(id,request);
             return Ok(response);

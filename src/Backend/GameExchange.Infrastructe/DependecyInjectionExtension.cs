@@ -1,4 +1,5 @@
-﻿using FluentMigrator.Runner;
+﻿using FirebirdSql.Data.Services;
+using FluentMigrator.Runner;
 using GameExchange.Domain.Repositories;
 using GameExchange.Domain.Repositories.Category;
 using GameExchange.Domain.Repositories.Game;
@@ -10,6 +11,7 @@ using GameExchange.Domain.Repositories.User;
 using GameExchange.Domain.Security.Cryptogaphy;
 using GameExchange.Domain.Security.Tokens;
 using GameExchange.Domain.Services;
+using GameExchange.Domain.Services.RebbitMQ;
 using GameExchange.Infrastructe.DataAccess;
 using GameExchange.Infrastructe.DataAccess.Repositories;
 using GameExchange.Infrastructe.Extensions;
@@ -18,6 +20,7 @@ using GameExchange.Infrastructe.Security.Tokens.Access.Generator;
 using GameExchange.Infrastructe.Security.Tokens.Access.Validator;
 using GameExchange.Infrastructe.Security.Tokens.Refresh;
 using GameExchange.Infrastructe.Services.LoggedUser;
+using GameExchange.Infrastructe.Services.RebbitMQ;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,6 +35,7 @@ namespace GameExchange.Infrastructe
             AddPasswordEncripter(services);
             AddToken(services, configuration);
             AddLoggedUser(services);
+            AddRabbitMQ(services, configuration);
 
             if (configuration.IsUnitTestEnviroment())
             {
@@ -43,6 +47,19 @@ namespace GameExchange.Infrastructe
           
         }
 
+        private static void AddRabbitMQ(IServiceCollection services, IConfiguration configuration)
+        {
+
+            var settings = configuration
+                .GetSection("Settings:RabbitMq")
+                .Get<RabbitMqSettings>()!;
+
+            services.AddSingleton(settings);
+            services.AddSingleton<RabbitMqConnection>();
+            services.AddSingleton<IEventPublisher, RabbitMqPublisher>();
+            services.AddSingleton<IEventConsumer, RabbitMqConsumer>();
+
+        }
         private static void AddRepositories(IServiceCollection services)
         {
 
@@ -70,6 +87,7 @@ namespace GameExchange.Infrastructe
 
 
             services.AddScoped<IOrderWriteOnlyRepository, OrderRepositoy>();
+            services.AddScoped<IOrderUpdateOnlyRepository, OrderRepositoy>();
 
 
             

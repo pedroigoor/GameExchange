@@ -183,7 +183,7 @@
   <data name="RESOURCE_NOT_FOUND" xml:space="preserve">
     <value>Recurso não encontrado.</value>
   </data>
-  <data name="STATUS_LISTING_NOT_SUPPORTED" xml:space="preserve">
+  <data name="STATUS_NOT_SUPPORTED" xml:space="preserve">
     <value>Status não suportado</value>
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">

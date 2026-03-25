@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameExchange.Communication.Request
 {
-    public class ChangeStatusRequest
+    public class RequestChangeStatusListing
     {
         public ListingStatus Status { get; set; }
     }

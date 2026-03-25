@@ -5,14 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameExchange.Application.UseCases.Listing.ChangeStatus
+namespace GameExchange.Application.UseCases.Order.UpdateStatus
 {
-    public class ChangeStatusValidator : AbstractValidator<RequestChangeStatusListing>
+    internal class UpdateStatusValidator:AbstractValidator<RequestChangeStatusOrder>
     {
-        public ChangeStatusValidator()
+        public UpdateStatusValidator()
         {
             RuleFor(r => r.Status).IsInEnum().WithMessage(ResourceMessagesException.STATUS_NOT_SUPPORTED);
         }
     }
 }
-

@@ -10,6 +10,7 @@ using GameExchange.Application.UseCases.Listing.Register;
 using GameExchange.Application.UseCases.Listing.Update;
 using GameExchange.Application.UseCases.Login.LoginInterno;
 using GameExchange.Application.UseCases.Order.Register;
+using GameExchange.Application.UseCases.Order.UpdateStatus;
 using GameExchange.Application.UseCases.Platform.List;
 using GameExchange.Application.UseCases.Platform.Register;
 using GameExchange.Application.UseCases.Platform.Update;
@@ -54,9 +55,10 @@ namespace GameExchange.Application
 
 
             services.AddScoped<IRegisterNewOrderUseCase, RegisterNewOrderUseCase>();
+            services.AddScoped<IUpdateStatusOrderUseCase, UpdateStatusOrderUseCase>();
 
 
-            
+
 
 
 

@@ -1,4 +1,5 @@
-﻿using GameExchange.API.Filters;
+﻿using GameExchange.API.BackgroundServices;
+using GameExchange.API.Filters;
 using GameExchange.API.Middleware;
 using GameExchange.API.Token;
 using GameExchange.Domain.Security.Tokens;
@@ -13,7 +14,10 @@ namespace GameExchange.API
         {
             services.AddMvc(options => options.Filters.Add<ExceptionFilter>());
             services.AddScoped<ITokenProvider, HttpContextTokenValue>();
-            //services.AddHostedService<DeleteUserService>();
+            services.AddHostedService<OrderCreatedConsumer>();
+            services.AddHostedService<PaymentRequestedConsumer>();
+            services.AddHostedService<PaymentRejectedConsumer>();
+            services.AddHostedService<PaymentAproveConsumer>();
 
 
         }

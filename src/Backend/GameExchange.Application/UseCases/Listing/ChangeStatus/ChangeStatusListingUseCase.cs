@@ -14,7 +14,7 @@ namespace GameExchange.Application.UseCases.Listing.ChangeStatus
     {
         private readonly IListingUpdateOnlyRepository _listingUpdateOnlyRepository = listingUpdateOnlyRepository;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
-        public async Task<ResponseListingJson> Execute(long id, ChangeStatusRequest status)
+        public async Task<ResponseListingJson> Execute(long id, RequestChangeStatusListing status)
         {
             await ValidateRequest(status);
 
@@ -35,7 +35,7 @@ namespace GameExchange.Application.UseCases.Listing.ChangeStatus
             return listing.Adapt<ResponseListingJson>();
         }
 
-        private static async Task ValidateRequest(ChangeStatusRequest status)
+        private static async Task ValidateRequest(RequestChangeStatusListing status)
         {
             var validator = new ChangeStatusValidator();
             var validationResult = validator.Validate(status);

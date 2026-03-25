@@ -261,9 +261,9 @@ namespace GameExchange.Excptions {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Status não suportado.
         /// </summary>
-        public static string STATUS_LISTING_NOT_SUPPORTED {
+        public static string STATUS_NOT_SUPPORTED {
             get {
-                return ResourceManager.GetString("STATUS_LISTING_NOT_SUPPORTED", resourceCulture);
+                return ResourceManager.GetString("STATUS_NOT_SUPPORTED", resourceCulture);
             }
         }
         
